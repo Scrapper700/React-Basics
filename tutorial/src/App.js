@@ -217,42 +217,53 @@
 //Controlled Components-->React will be controlling this
 //=========================================//
 
-import './App.css'
-import React, { useState } from 'react'
+// import './App.css'
+// import React, { useRef, useState } from 'react'
 
-function App() {
+// function App() 
+// {
 
-  const [name,setName]=useState("")
-  const [pswd,setpswd]=useState("")
+  // const [name,setName]=useState("")
+  // const [pswd,setpswd]=useState("")
 
   // function handlechanges(e){
   //   console.log(e.target.value)
   //   setName(e.target.value)
   // }
 
-  function handlechanges(e){
-    if(e.target.name==="Firstname"){
-      const capname=(e.target.value).toUpperCase();
-      setName(capname)
-    }
+  // function handlechanges(e){
+  //   if(e.target.name==="Firstname"){
+  //     const capname=(e.target.value).toUpperCase();
+  //     setName(capname)
+  //   }
 
-    else{
-      setpswd(e.target.value)
-    }
+  //   else{
+  //     setpswd(e.target.value)
+  //   }
+  // }
+
+// 
+
+//======================================================================================
+//Lifting up of States
+//======================================================================================
+
+import './App.css'
+import ChildA from './ChildA'
+
+function App(){
+
+  function getData(data){
+    console.log(data)
   }
-
-  return (
+  
+  return(
     <>
-      <form className='App'>
-        <label>First name:</label><br/>
-      {/* <input type="text" value={name} onChange={(e)=>setName(e.target.value)} /><br/> */}
-      <input type="text" name='Firstname' value={name} onChange={handlechanges} /><br/>
-      <label>Password:</label><br/>
-      <input type="password" value={pswd} onChange={(handlechanges)}/><br/>
-    </form >
+    <ChildA getData={getData}/>
     </>
   )
 }
 
 export default App
+
 
