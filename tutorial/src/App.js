@@ -223,24 +223,24 @@
 // function App() 
 // {
 
-  // const [name,setName]=useState("")
-  // const [pswd,setpswd]=useState("")
+// const [name,setName]=useState("")
+// const [pswd,setpswd]=useState("")
 
-  // function handlechanges(e){
-  //   console.log(e.target.value)
-  //   setName(e.target.value)
-  // }
+// function handlechanges(e){
+//   console.log(e.target.value)
+//   setName(e.target.value)
+// }
 
-  // function handlechanges(e){
-  //   if(e.target.name==="Firstname"){
-  //     const capname=(e.target.value).toUpperCase();
-  //     setName(capname)
-  //   }
+// function handlechanges(e){
+//   if(e.target.name==="Firstname"){
+//     const capname=(e.target.value).toUpperCase();
+//     setName(capname)
+//   }
 
-  //   else{
-  //     setpswd(e.target.value)
-  //   }
-  // }
+//   else{
+//     setpswd(e.target.value)
+//   }
+// }
 
 // 
 
@@ -248,22 +248,68 @@
 //Lifting up of States
 //======================================================================================
 
+// import './App.css'
+// import ChildA from './ChildA'
+
+// function App(){
+
+//   function getData(data){
+//     console.log(data)
+//   }
+
+//   return(
+//     <>
+//     <ChildA getData={getData}/>
+//     </>
+//   )
+// }
+
+// export default App
+
+//=================================
+//Map and key
+//=================================
+
+// import './App.css'
+// import React from 'react'
+
+// function App(){
+
+//   const team=["CSK","MI","RCB","CSK"]
+//   const res=team.map((team,index)=><h1 key={index}>{team} index is {index}</h1>)
+
+//   return (
+
+//     <div className='App'>
+//       <h1>{res}</h1>
+//     </div>
+//   )
+// }
+
+// export default App
+
 import './App.css'
-import ChildA from './ChildA'
+import React, {useState} from 'react'
 
-function App(){
 
-  function getData(data){
-    console.log(data)
+function App() {
+  const [allvalues, setallvalues] = useState({ firstName: "Avijit", lastName: "Dey" })
+
+  function handleupdate(){
+    setallvalues({...allvalues,firstName:"Arijit"})
   }
-  
-  return(
-    <>
-    <ChildA getData={getData}/>
-    </>
+
+
+  return (
+    <div classname='App'>
+      <h1>First name is {allvalues.firstName} and last name is {allvalues.lastName}</h1>
+      <button onClick={handleupdate}>Update</button>
+    </div>
   )
 }
 
 export default App
+
+
 
 
